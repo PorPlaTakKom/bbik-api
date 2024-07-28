@@ -1,0 +1,55 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories (remove the comment below if you use Go modules)
+vendor/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Go workspace file
+go.work
+
+# Logs
+*.log
+
+# Directories for test coverage reports
+coverage/
+
+# Build directory
+/build
+
+# GoLand IDE specific directories
+/.idea/
+/.idea/
+
+# VSCode specific directories and files
+/.vscode/
+/.vscode/*
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Go module files
+go.sum
+
+# Git directory
+.git/
+
+# Env files
+.env
