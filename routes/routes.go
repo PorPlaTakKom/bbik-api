@@ -15,4 +15,8 @@ func SetupRouter(r *gin.Engine) {
 		v1.PUT("/todos/:id", controllers.UpdateTodoByID)
 		v1.DELETE("/todos/:id", controllers.DeleteTodoByID)
 	}
+
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Hello")
+	})
 }
