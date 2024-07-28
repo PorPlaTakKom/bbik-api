@@ -13,6 +13,8 @@ RUN go mod download
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
+RUN ls -la
+
 ARG DB_USER
 ARG DB_PASS
 ARG DB_HOST

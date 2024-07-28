@@ -23,20 +23,20 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      # - name: Create .env file
-      #   run: |
-      #     echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-      #     echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
-      #     echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
-      #     echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
-      #     echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+      - name: Create .env file
+        run: |
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.5.0
         with:
           file: Dockerfile
           push: true
-          tags:  ${{ secrets.REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}:latest
+          tags:  ${{ secrets.REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}:v0.3
           build-args: |
             DB_USER=${{ secrets.DB_USER }}
             DB_PASS=${{ secrets.DB_PASS }}
