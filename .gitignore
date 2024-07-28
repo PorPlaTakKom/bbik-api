@@ -45,9 +45,6 @@ coverage/
 # Windows files
 Thumbs.db
 
-# Go module files
-go.sum
-
 # Git directory
 .git/
 
