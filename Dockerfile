@@ -13,18 +13,20 @@ RUN go mod download
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
-RUN ls -la
-
 ARG DB_USER
 ARG DB_PASS
 ARG DB_HOST
 ARG DB_PORT
 ARG DB_NAME
-ENV DB_USER=$DB_USER
-ENV DB_PASS=$DB_PASS
-ENV DB_HOST=$DB_HOST
-ENV DB_PORT=$DB_PORT
-ENV DB_NAME=$DB_NAME
+
+# Create a .env file with the environment variables
+RUN echo "DB_USER=${DB_USER}" > .env && \
+    echo "DB_PASS=${DB_PASS}" >> .env && \
+    echo "DB_HOST=${DB_HOST}" >> .env && \
+    echo "DB_PORT=${DB_PORT}" >> .env && \
+    echo "DB_NAME=${DB_NAME}" >> .env
+
+RUN ls -la
 
 # Build the Go app
 RUN go build -o main .
