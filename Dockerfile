@@ -28,6 +28,8 @@ RUN echo "DB_USER=${DB_USER}" > .env && \
 
 RUN ls -la
 
+RUN cat .env
+
 # Build the Go app
 RUN go build -o main .
 
