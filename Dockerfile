@@ -13,6 +13,17 @@ RUN go mod download
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
+ARG DB_USER
+ARG DB_PASS
+ARG DB_HOST
+ARG DB_PORT
+ARG DB_NAME
+ENV DB_USER=$DB_USER
+ENV DB_PASS=$DB_PASS
+ENV DB_HOST=$DB_HOST
+ENV DB_PORT=$DB_PORT
+ENV DB_NAME=$DB_NAME
+
 # Build the Go app
 RUN go build -o main .
 
