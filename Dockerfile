@@ -4,8 +4,6 @@ FROM golang:1.22.5-alpine
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
-RUN ls -la
-
 # Copy go.mod and go.sum files
 COPY go.mod go.sum .env ./
 
