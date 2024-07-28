@@ -39,5 +39,5 @@ func main() {
 
 	routes.SetupRouter(r)
 
-	r.Run()
+	r.Run(":80")
 }
