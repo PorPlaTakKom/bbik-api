@@ -13,18 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.1.7
 
-      # - name: Create .env file
-      #   run: |
-      #     echo "DB_USER=${{ secrets.DB_USER }}" >> $PWD/.env
-      #     echo "DB_PASS=${{ secrets.DB_PASS }}" >> $PWD/.env
-      #     echo "DB_HOST=${{ secrets.DB_HOST }}" >> $PWD/.env
-      #     echo "DB_PORT=${{ secrets.DB_PORT }}" >> $PWD/.env
-      #     echo "DB_NAME=${{ secrets.DB_NAME }}" >> $PWD/.env
-      
-      # - name: List file
-      #   run: |
-      #    ls -la
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.5.0
 
@@ -40,7 +28,7 @@ jobs:
         with:
           file: Dockerfile
           push: true
-          tags:  ${{ secrets.REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}:latest
+          tags:  ${{ secrets.REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}:v1.0
           build-args: |
             DB_USER=${{ secrets.DB_USER }}
             DB_PASS=${{ secrets.DB_PASS }}
