@@ -26,7 +26,7 @@ func CORSMiddleware() gin.HandlerFunc {
 }
 
 func main() {
-	err := godotenv.Load(".env.local")
+	err := godotenv.Load()
 	if err != nil {
 		panic("Error loading .env file")
 	}
